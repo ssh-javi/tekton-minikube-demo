@@ -207,7 +207,3 @@ Ideal para aprender conceptos reales de DevOps y Platform Engineering.
 
 **Javier Martinez**
 DevOps Engineer
-
-```
-```
-

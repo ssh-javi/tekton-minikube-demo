@@ -1,4 +1,4 @@
-````md
+
 # 🚀 Tekton Minikube CI/CD Demo
 
 Pipeline completo de CI/CD ejecutándose localmente con Kubernetes usando Tekton y Minikube.

@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: deploy-app
+  namespace: demo
+
+spec:
+  steps:
+    - name: deploy
+      image: bitnami/kubectl
+
+      script: |
+        #!/bin/sh
+
+        kubectl rollout restart deployment/demo-app -n demo

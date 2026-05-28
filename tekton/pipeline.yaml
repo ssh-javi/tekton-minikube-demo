@@ -1,0 +1,52 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+
+metadata:
+  name: cicd-pipeline
+  namespace: demo
+
+spec:
+  workspaces:
+    - name: shared-workspace
+
+  params:
+    - name: repo-url
+      type: string
+
+  tasks:
+
+    - name: clone-repository
+
+      taskRef:
+        name: git-clone
+
+      params:
+        - name: url
+          value: $(params.repo-url)
+
+        - name: deleteExisting
+          value: "true"
+
+      workspaces:
+        - name: output
+          workspace: shared-workspace
+
+    - name: build-image
+
+      runAfter:
+        - clone-repository
+
+      taskRef:
+        name: build-image
+
+      workspaces:
+        - name: source
+          workspace: shared-workspace
+
+    - name: deploy-app
+
+      runAfter:
+        - build-image
+
+      taskRef:
+        name: deploy-app

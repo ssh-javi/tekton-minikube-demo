@@ -1,0 +1,29 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: build-image
+  namespace: demo
+
+spec:
+  workspaces:
+    - name: source
+
+  steps:
+    - name: build
+      image: docker:24
+
+      script: |
+        #!/bin/sh
+
+        cd /workspace/source/source/app
+
+        docker build -t demo-app:latest .
+
+      volumeMounts:
+        - name: docker-sock
+          mountPath: /var/run/docker.sock
+
+  volumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock

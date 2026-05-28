@@ -21,7 +21,7 @@ spec:
         name: git-clone
 
       params:
-        - name: url
+        - name: repo-url
           value: $(params.repo-url)
 
         - name: deleteExisting

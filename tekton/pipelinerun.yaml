@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+
+metadata:
+  generateName: cicd-run-
+  namespace: demo
+
+spec:
+  pipelineRef:
+    name: cicd-pipeline
+
+  params:
+    - name: repo-url
+      value: https://github.com/ssh-javi/tekton-minikube-demo.git
+
+  workspaces:
+    - name: shared-workspace
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+
+          resources:
+            requests:
+              storage: 1Gi

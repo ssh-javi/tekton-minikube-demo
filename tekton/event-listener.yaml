@@ -1,0 +1,18 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+
+metadata:
+  name: cicd-listener
+  namespace: demo
+
+spec:
+  serviceAccountName: default
+
+  triggers:
+    - name: github-trigger
+
+      bindings:
+        - ref: cicd-binding
+
+      template:
+        ref: cicd-template

@@ -1,0 +1,36 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+
+metadata:
+  name: cicd-template
+  namespace: demo
+
+spec:
+  params:
+    - name: gitrepositoryurl
+
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1
+      kind: PipelineRun
+
+      metadata:
+        generateName: cicd-run-
+
+      spec:
+        pipelineRef:
+          name: cicd-pipeline
+
+        params:
+          - name: repo-url
+            value: $(tt.params.gitrepositoryurl)
+
+        workspaces:
+          - name: shared-workspace
+            volumeClaimTemplate:
+              spec:
+                accessModes:
+                  - ReadWriteOnce
+
+                resources:
+                  requests:
+                    storage: 1Gi

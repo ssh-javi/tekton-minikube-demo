@@ -1,0 +1,11 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerBinding
+
+metadata:
+  name: cicd-binding
+  namespace: demo
+
+spec:
+  params:
+    - name: gitrepositoryurl
+      value: $(body.repository.clone_url)

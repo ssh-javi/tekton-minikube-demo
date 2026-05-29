@@ -1,10 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CI/CD Demo</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: #2563eb;
+      filter: blur(120px);
+      opacity: 0.25;
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      padding: 50px;
+      border-radius: 24px;
+      text-align: center;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.4);
+      animation: fadeIn 1s ease;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      color: #60a5fa;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 64px;
+      margin-bottom: 16px;
+      background: linear-gradient(to right, #60a5fa, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 20px;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    .stack {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .stack span {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #94a3b8;
+      transition: 0.3s ease;
+    }
+
+    .stack span:hover {
+      transform: translateY(-4px);
+      border-color: #3b82f6;
+      color: white;
+    }
+
+    .footer {
+      margin-top: 35px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Version 1</h1>
-  <p>Deploy automatico con Tekton</p>
+
+  <div class="glow"></div>
+
+  <div class="card">
+    <div class="badge">
+      🚀 AUTOMATED DELIVERY PIPELINE
+    </div>
+
+    <h1>Version 1</h1>
+
+    <p>
+      Deploy automático realizado con Tekton Pipeline
+    </p>
+
+    <div class="stack">
+      <span>Docker</span>
+      <span>Tekton</span>
+      <span>Kubernetes</span>
+      <span>GitHub Actions</span>
+      <span>CI/CD</span>
+    </div>
+
+    <div class="footer">
+      Built by Javier Martinez | DevOps Engineer
+    </div>
+  </div>
+
 </body>
 </html>

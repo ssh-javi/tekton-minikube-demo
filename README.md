@@ -181,15 +181,6 @@ Cada `git push` ejecuta automáticamente:
 
 ---
 
-# 📸 Idea de Demo (TikTok / LinkedIn)
-
-1. Editar `index.html`
-2. Hacer commit y push
-3. Mostrar Tekton ejecutando el pipeline
-4. Mostrar la app actualizándose automáticamente en el navegador
-
----
-
 # 🧠 Objetivo del Proyecto
 
 Demostrar un flujo real de CI/CD cloud-native usando herramientas modernas del ecosistema Kubernetes, de forma:
